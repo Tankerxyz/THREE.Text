@@ -1,4 +1,5 @@
 ;(function() {
+	console.log('init');
 
     
     var root = this;
