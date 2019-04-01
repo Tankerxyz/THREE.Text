@@ -45,11 +45,13 @@
            
     }
 
-	DText.prototype = Object.create( THREE.Mesh.prototype );
+    DText.prototype = Object.create( THREE.Mesh.prototype );
     DText.prototype.constructor = DText;
 
     DText.prototype.renderGeometry = function() {
         var shapes = this.font.generateShapes( this.text, this.size, this.divisions );
+	this.geometry.dispose();
+	    
         var geometry = this._3d ?  new THREE.ExtrudeBufferGeometry( shapes, this.extrudeSettings ) : new THREE.ShapeGeometry( shapes );
         geometry.computeBoundingBox();          
         geometry.computeBoundingSphere();          
